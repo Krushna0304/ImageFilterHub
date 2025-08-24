@@ -9,6 +9,9 @@ sys.path.append(str(root_dir))
 from filters import histogram
 from utils.io_utils import load_image
 from utils.plot_utils import show_side_by_side, plot_histogram
+from filter_descriptions.histogram_desc import (
+    image_histogram_info, histogram_equalization_info, clahe_info
+)
 
 def run(uploaded_file):
     st.title("📊 Histogram Processing")
@@ -24,14 +27,17 @@ def run(uploaded_file):
         if option == "Image Histogram":
             hist = histogram.compute_histogram(gray)
             plot_histogram(gray, hist, title="Image Histogram", width=10, height=5)
+            image_histogram_info()
 
 
         elif option == "Histogram Equalization":
             eq_img = histogram.histogram_equalization(gray)
             show_side_by_side(gray, eq_img, caption1="Original", caption2="Equalized")
+            histogram_equalization_info()
 
         elif option == "CLAHE":
             clahe_img = histogram.clahe_equalization(gray, clip_limit=2.0, tile_grid_size=(8, 8))
             show_side_by_side(gray, clahe_img, caption1="Original", caption2="CLAHE")
+            clahe_info()
     else:
         st.warning("Please upload an image to proceed.")

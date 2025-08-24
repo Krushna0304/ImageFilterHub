@@ -9,6 +9,9 @@ sys.path.append(str(root_dir))
 from utils.io_utils import load_image, save_image
 from utils.plot_utils import show_side_by_side
 from filters import edge_detection
+from filter_descriptions.edge_detection_desc import (
+    sobel_filter_info, prewitt_filter_info, laplacian_filter_info, canny_filter_info,
+)
 
 
 def run(uploaded_file):
@@ -25,18 +28,22 @@ def run(uploaded_file):
         if option == "Sobel":
             edges = edge_detection.sobel_edge_detection(gray)
             show_side_by_side(gray, edges, caption1="Original", caption2="Sobel")
+            sobel_filter_info()
 
         elif option == "Prewitt":
             edges = edge_detection.prewitt_edge_detection(gray)
             show_side_by_side(gray, edges, caption1="Original", caption2="Prewitt")
+            prewitt_filter_info()
 
         elif option == "Laplacian":
             edges = edge_detection.laplacian_edge_detection(gray)
             show_side_by_side(gray, edges, caption1="Original", caption2="Laplacian")
+            laplacian_filter_info()
 
         elif option == "Canny":
             edges = edge_detection.canny_edge_detection(gray)
             show_side_by_side(gray, edges, caption1="Original", caption2="Canny")
+            canny_filter_info()
 
         save_option = st.checkbox("Save Result")
         if save_option:

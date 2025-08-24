@@ -8,7 +8,11 @@ sys.path.append(str(root_dir))
 from filters import filtering
 from utils.io_utils import load_image
 
-
+#importing filter descriptions
+from filter_descriptions.filtering_desc import (
+    mean_filter_info, gaussian_filter_info, median_filter_info,
+    bilateral_filter_info, high_pass_filter_info, low_pass_filter_info,high_boost_filter_info
+)
 
 def run(uploaded_file):
     st.title("🎨 Basic Image Filtering")
@@ -32,6 +36,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="Mean Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            mean_filter_info()
 
         elif option == "Gaussian Filter":
             result = filtering.gaussian_filter(gray, ksize=5)
@@ -43,6 +48,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="Gaussian Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            gaussian_filter_info()
 
         elif option == "Median Filter":
             result = filtering.median_filter(gray, ksize=5)
@@ -54,6 +60,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="Median Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            median_filter_info()
 
         elif option == "Bilateral Filter":
             result = filtering.bilateral_filter(gray, d=9, sigma_color=75, sigma_space=75)
@@ -65,6 +72,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="Bilateral Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            bilateral_filter_info()
 
         elif option == "High-Pass Filter":
             result = filtering.high_pass_filter(gray)
@@ -76,6 +84,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="High-Pass Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            high_pass_filter_info()
 
         elif option == "Low-Pass Filter":
             result = filtering.low_pass_filter(gray, ksize=15)
@@ -87,6 +96,7 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="Low-Pass Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
+            low_pass_filter_info()
 
         elif option == "High-Boost Filter":
             result = filtering.high_boost_filter(gray, A=1.5, ksize=5)
@@ -98,7 +108,8 @@ def run(uploaded_file):
                 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
                 st.image(result, caption="High-Boost Filter", channels="GRAY", width=250)
                 st.markdown("</div>", unsafe_allow_html=True)
-
+            high_boost_filter_info()
+            
     else:
         st.warning("Please upload an image to proceed.")
 
