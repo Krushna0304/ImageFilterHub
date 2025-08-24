@@ -38,7 +38,7 @@ image-filters-app/
 
 1. Clone the repository:
    ```
-   git clone P1
+   git clone https://github.com/Krushna0304/ImageFilterHub.git
    cd image-filters-app
    ```
 
