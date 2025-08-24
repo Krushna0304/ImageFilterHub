@@ -6,7 +6,8 @@ This project is a Streamlit application designed for image processing and filter
 
 ```
 image-filters-app/
-├── app.py                         # Main Streamlit app entry point
+├── app.py        
+├── __init__.py                 # Main Streamlit app entry point
 ├── requirements.txt               # Python dependencies (streamlit, opencv, numpy, etc.)
 ├── README.md                      # Project documentation
 │
@@ -26,13 +27,23 @@ image-filters-app/
 │   ├── edge_detection.py         # Sobel, Prewitt, Roberts, Laplacian, Canny
 │   ├── features.py               # Harris, Shi-Tomasi, SIFT, FAST, ORB
 │
-├── FilterPages/                         # Streamlit multipage support
+├── filter_descriptions/                      # Organized by categories
+│   ├── __init__.py
+│   ├── fundamentals_desc.py           # Negation, Thresholding, Gray-level slicing, etc.
+│   ├── histogram_desc.py              # Histogram processing & equalization
+│   ├── filtering_desc.py              # Mean, Gaussian, Median, Bilateral, etc.
+│   ├── edge_detection_desc.py         # Sobel, Prewitt, Roberts, Laplacian, Canny
+│   ├── features_desc.py   
+│  
+├── FilterPages/                  # Streamlit multipage support
+│   ├── __init__.py                     
 │   ├── P1Fundamentals.py
 │   ├── P2Histogram.py
 │   ├── P3Filtering.py
 │   ├── P4Edge_Detection.py
 │   ├── P5Feature_Detection.py
 ```
+
 
 ## Setup Instructions
 
