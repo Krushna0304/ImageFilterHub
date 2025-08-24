@@ -64,6 +64,18 @@ image-filters-app/
    pip install -r requirements.txt
    ```
 
+## 🐳 Run with Docker (Recommended)
+
+You can quickly run this app using Docker without installing dependencies:
+
+```bash
+# Pull the image from DockerHub
+docker pull krushna0304/image-filters-app:latest
+
+# Run the container
+docker run -p 8501:8501 krushna0304/image-filters-app:latest
+   ```
+
 ## Usage
 
 To run the Streamlit application, execute the following command in your terminal:

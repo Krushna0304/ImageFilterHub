@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  image-filters-app:
+    build: .
+    container_name: image-filters-app
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app   # Mount local code into container (useful for development)
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
